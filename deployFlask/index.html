@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Dr. Beth Plale and Chirag Shankar Indi">
-  <link rel="canonical" href="https://data-to-insight-center.github.io/edgeAI/deployFlask/">
+  <link rel="canonical" href="https://chirag-indi.github.io/edgeAI/deployFlask/">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Deploying a Flask application - Edge AI Trust Project</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
@@ -81,6 +81,8 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../testFlask/">Testing the Flask application</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../withoutvpn/">Cluster without EdgeVPN</a>
+                    </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Meeting Recap</span></p>
                 <ul>
@@ -120,7 +122,7 @@
     <li>Deploying a Flask application</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/Data-to-Insight-Center/edgeAI/edit/main/docs/deployFlask.md"
+        <a href="https://github.com/chirag-indi/edgeAI/edit/main/docs/deployFlask.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -133,7 +135,7 @@
               
                 <h1 id="deploying-a-simple-flask-application">Deploying a simple Flask application</h1>
 <p>The basic functionality of the application is to accept a request initiated in any of the pods and take a random walk through the remaining active pods dynamically fetching and using the flannel IP associated with the each of the pods.</p>
-<p>The code is currently in the branch <a href="https://github.com/Data-to-Insight-Center/edgeAI/tree/flask-application">flask-application</a>.</p>
+<p>The code is currently in the branch <a href="https://github.com/chirag-indi/edgeAI/tree/flask-application">flask-application</a>.</p>
 <h2 id="building-the-multiarch-docker-image">Building the Multiarch docker Image</h2>
 <p>A multiarchitecture Docker image facilitates the use of edge IoT devices to run the Flask server.
 This is done using Docker Buildx which is a CLI plugin that extends the docker command and is designed to work well for building for multiple platforms and not only for the architecture and operating system that the user invoking the build happens to run.</p>
@@ -345,7 +347,7 @@ roleRef:
   <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/Data-to-Insight-Center/edgeAI/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/chirag-indi/edgeAI/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../setup/" style="color: #fcfcfc;">&laquo; Previous</a></span>

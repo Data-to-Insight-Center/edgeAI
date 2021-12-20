@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Dr. Beth Plale and Chirag Shankar Indi">
-  <link rel="canonical" href="https://chirag-indi.github.io/edgeAI/topology/">
+  <link rel="canonical" href="https://chirag-indi.github.io/edgeAI/withoutvpn/">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Node Topology - Edge AI Trust Project</title>
+  <title>Cluster without EdgeVPN - Edge AI Trust Project</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,9 +19,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Node Topology";
-    var mkdocs_page_input_path = "topology.md";
-    var mkdocs_page_url = "/edgeAI/topology/";
+    var mkdocs_page_name = "Cluster without EdgeVPN";
+    var mkdocs_page_input_path = "withoutvpn.md";
+    var mkdocs_page_url = "/edgeAI/withoutvpn/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -60,7 +60,7 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Cluster Initialization and Setup</span></p>
-                <ul>
+                <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../prereq/">Prerequisites on the host system</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../setup/">Cluster setup</a>
@@ -69,7 +69,13 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../testFlask/">Testing the Flask application</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../withoutvpn/">Cluster without EdgeVPN</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Cluster without EdgeVPN</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#steps-to-access-the-edge-kubernetes-cluster">Steps to access the edge Kubernetes cluster</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuring-the-cluster-to-use-edgevpn">Configuring the cluster to use EdgeVPN</a>
+    </li>
+    </ul>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Meeting Recap</span></p>
@@ -78,10 +84,8 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Topology</span></p>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Node Topology</a>
-    <ul class="current">
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../topology/">Node Topology</a>
                     </li>
                 </ul>
       </div>
@@ -105,14 +109,14 @@
     
       
         
-          <li>Topology &raquo;</li>
+          <li>Cluster Initialization and Setup &raquo;</li>
         
       
     
-    <li>Node Topology</li>
+    <li>Cluster without EdgeVPN</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/chirag-indi/edgeAI/edit/main/docs/topology.md"
+        <a href="https://github.com/chirag-indi/edgeAI/edit/main/docs/withoutvpn.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -123,8 +127,57 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="node-topology">Node Topology</h1>
-<p><img alt="Node Topology" src="../img/basic_visualization.png" /></p>
+                <h1 id="running-the-cluster-without-edgevpn">Running the cluster without EdgeVPN</h1>
+<p>The Kubernetes cluster is running on crossbill (129.79.186.147) on port 6443.</p>
+<h2 id="steps-to-access-the-edge-kubernetes-cluster">Steps to access the edge Kubernetes cluster</h2>
+<ol>
+<li>
+<p><a href="https://kubernetes.io/docs/tasks/tools/">Install</a> a local command line version of kubectl. Skip this step if you have already installed it previously. This can be verified by running <code>kubectl --version</code>.</p>
+</li>
+<li>
+<p>Make sure you are connected to the IU Network/VPN.</p>
+</li>
+<li>
+<p>Export the config (provided by D2I) file for your local kubectl to use by running:</p>
+</li>
+</ol>
+<pre><code>export KUBECONFIG=~/exampleConfig.yaml
+</code></pre>
+<ol>
+<li>Now the cluster can be accessed remotely from your local computer.</li>
+</ol>
+<pre><code>$ kubectl get nodes
+NAME         STATUS   ROLES                  AGE     VERSION
+crossbill    Ready    control-plane,master   2d22h   v1.21.7+k3s1
+d2iedgeai    Ready    worker                 2d22h   v1.21.7+k3s1
+d2iedgeai3   Ready    worker                 2d22h   v1.21.7+k3s1
+d2iedgeai2   Ready    worker                 2d22h   v1.21.7+k3s1
+</code></pre>
+<h2 id="configuring-the-cluster-to-use-edgevpn">Configuring the cluster to use EdgeVPN</h2>
+<ol>
+<li>
+<p>Install the required pre-requistes mentioned in the previous webpages.</p>
+</li>
+<li>
+<p>Start the EdgeVPN docker container on the head node.</p>
+</li>
+<li>
+<p>Enable/start the Evio service on the nodes by running:</p>
+</li>
+</ol>
+<pre><code>sudo systemctl start evio
+</code></pre>
+<ol>
+<li>
+<p>Once the edgeVPN is running on the nodes, instaniate the kubernetes cluster on the head node. </p>
+</li>
+<li>
+<p>Once the kubernetes cluster is up and running on the head node, copy the cluster key and run the Kuberenets bash start script to join the head node from each of the edge devices.</p>
+</li>
+<li>
+<p>The cluster should be up and running. You can copy the kubeconfig file to use it for remote access. </p>
+</li>
+</ol>
               
             </div>
           </div>
@@ -132,8 +185,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../12-May-2021/" class="btn btn-neutral float-right" title="12-May-2021">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../12-May-2021/" class="btn btn-neutral" title="12-May-2021"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../testFlask/" class="btn btn-neutral" title="Testing the Flask application"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -161,8 +216,10 @@
           <a href="https://github.com/chirag-indi/edgeAI/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../12-May-2021/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../testFlask/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../12-May-2021/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

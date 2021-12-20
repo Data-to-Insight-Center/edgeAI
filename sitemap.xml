@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>https://data-to-insight-center.github.io/edgeAI/</loc>
-     <lastmod>2021-06-30</lastmod>
+     <loc>https://chirag-indi.github.io/edgeAI/</loc>
+     <lastmod>2021-12-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://data-to-insight-center.github.io/edgeAI/kernel/</loc>
-     <lastmod>2021-06-30</lastmod>
+     <loc>https://chirag-indi.github.io/edgeAI/kernel/</loc>
+     <lastmod>2021-12-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://data-to-insight-center.github.io/edgeAI/install/</loc>
-     <lastmod>2021-06-30</lastmod>
+     <loc>https://chirag-indi.github.io/edgeAI/install/</loc>
+     <lastmod>2021-12-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://data-to-insight-center.github.io/edgeAI/prereq/</loc>
-     <lastmod>2021-06-30</lastmod>
+     <loc>https://chirag-indi.github.io/edgeAI/prereq/</loc>
+     <lastmod>2021-12-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://data-to-insight-center.github.io/edgeAI/setup/</loc>
-     <lastmod>2021-06-30</lastmod>
+     <loc>https://chirag-indi.github.io/edgeAI/setup/</loc>
+     <lastmod>2021-12-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://data-to-insight-center.github.io/edgeAI/deployFlask/</loc>
-     <lastmod>2021-06-30</lastmod>
+     <loc>https://chirag-indi.github.io/edgeAI/deployFlask/</loc>
+     <lastmod>2021-12-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://data-to-insight-center.github.io/edgeAI/testFlask/</loc>
-     <lastmod>2021-06-30</lastmod>
+     <loc>https://chirag-indi.github.io/edgeAI/testFlask/</loc>
+     <lastmod>2021-12-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://data-to-insight-center.github.io/edgeAI/12-May-2021/</loc>
-     <lastmod>2021-06-30</lastmod>
+     <loc>https://chirag-indi.github.io/edgeAI/withoutvpn/</loc>
+     <lastmod>2021-12-20</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://data-to-insight-center.github.io/edgeAI/topology/</loc>
-     <lastmod>2021-06-30</lastmod>
+     <loc>https://chirag-indi.github.io/edgeAI/12-May-2021/</loc>
+     <lastmod>2021-12-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://chirag-indi.github.io/edgeAI/topology/</loc>
+     <lastmod>2021-12-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
